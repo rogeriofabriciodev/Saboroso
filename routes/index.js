@@ -6,7 +6,7 @@ var contacts = require('./../inc/contacts');
 var emails = require('./../inc/emails');
 var router = express.Router();
 
-module.exports = function() {
+module.exports = function(io) {
 
   /* GET home page. */
   router.get('/', function(req, res, next) {
@@ -38,7 +38,6 @@ module.exports = function() {
       contacts.save(req.body).then(results => {
         
         req.body = {};
-
         io.emit('dashboard update');
 
         contacts.render(req, res, null, "Contato enviado com Sucesso!");
@@ -54,7 +53,7 @@ module.exports = function() {
   router.get('/menus', function(req, res, next) {
 
     menus.getMenus().then(results => {
-      res.render('menus', {title: 'Menu', background: 'images/img_bg_1.jpg', h1: 'Saboreie nosso menu!', menus: results});
+      res.render('menus', {title: 'Menu', background: 'images/img_bg_1.jpg', h1: 'Saborei nosso menu!', menus: results});
     });
 
   });
@@ -64,6 +63,8 @@ module.exports = function() {
   });
 
   router.post('/reservations', function(req, res, next) {
+
+    console.log('reserv: ',req.body);
 
     if (!req.body.name) {
       reservations.render(req, res, "Digite o nome");

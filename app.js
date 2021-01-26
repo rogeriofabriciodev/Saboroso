@@ -40,7 +40,7 @@ app.use(function(req, res, next){
 
   req.body = {};
  
-  if (req.method === 'POST' && contentType.indexOf('multipart/form-data;') > -1) {
+  if (req.method === 'POST') {
     var form = formidable.IncomingForm({
       uploadDir: path.join(__dirname, "/public/images"),
       keepExtensions: true
