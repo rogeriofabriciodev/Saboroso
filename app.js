@@ -9,7 +9,7 @@ var formidable = require('formidable');
 var http = require('http');
 var socket = require('socket.io');
 var path = require('path');
-const port = process.env.PORT || 3000;
+const portH = process.env.PORT || 3000;
 
 var RedisStore = require('connect-redis')(session);
 var redisClient = redis.createClient({
@@ -96,7 +96,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-http.listen(port, function() {
+http.listen(portH, function() {
 
   console.log('servidor online');
 
