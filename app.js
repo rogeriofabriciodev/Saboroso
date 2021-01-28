@@ -96,7 +96,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-http.listen(process.env.PORT, function() {
+http.listen(port, function() {
 
   console.log('servidor online');
 
