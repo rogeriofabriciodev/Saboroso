@@ -13,8 +13,8 @@ var path = require('path');
 var RedisStore = require('connect-redis')(session);
 var redisClient = redis.createClient({
   host: 'localhost',
-  port: 6379,
-  password: 'secret1234'
+  port: 7499,
+  password: 'p000b1b068b23c4cb4197226116bf66bdea4f025c7e32e51ebc3490f2e7dd2157'
 });
 redisClient.unref()
 redisClient.on('error', console.log)
