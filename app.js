@@ -14,7 +14,7 @@ const portH = process.env.PORT || 3000;
 var RedisStore = require('connect-redis')(session);
 var redisClient = redis.createClient({
   host: 'localhost',
-  port: 6379,
+  port: 7499,
   password: 'secret1234'
 });
 redisClient.unref()
