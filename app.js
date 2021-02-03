@@ -8,13 +8,11 @@ const redis = require('redis');
 var formidable = require('formidable');
 var http = require('http');
 var socket = require('socket.io');
-var path = require('path');
 
 var RedisStore = require('connect-redis')(session);
 var redisClient = redis.createClient({
   host: 'localhost',
   port: 6379,
-  user: 'saboroso',
   password: 'secret1234'
 });
 redisClient.unref()
@@ -72,8 +70,8 @@ app.use(
 );
 
 app.use(logger('dev'));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
