@@ -14,6 +14,7 @@ var RedisStore = require('connect-redis')(session);
 var redisClient = redis.createClient({
   host: 'localhost',
   port: 6379,
+  user: 'saboroso',
   password: 'secret1234'
 });
 redisClient.unref()
